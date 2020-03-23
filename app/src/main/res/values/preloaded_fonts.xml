@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/allerta</item>
+        <item>@font/allerta_stencil</item>
+        <item>@font/amaranth</item>
+        <item>@font/assistant_bold</item>
+        <item>@font/nobile</item>
+        <item>@font/nobile_bold</item>
+    </array>
+</resources>
