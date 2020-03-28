@@ -17,4 +17,21 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    <string name="location_kelowna">Location: Kelowna</string>
+    <string name="vehicle_bmw_320i">Vehicle: BMW 320i</string>
+
+    <string-array name="favSpinner">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="musicGenre">
+        <item>Pop</item>
+        <item>Country</item>
+        <item>R&amp;B</item>
+        <item>Jazz</item>
+        <item>Punk Rock</item>
+        <item>Gospel Music</item>
+    </string-array>
+
 </resources>

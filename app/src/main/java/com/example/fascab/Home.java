@@ -1,49 +1,35 @@
 package com.example.fascab;
 
 
-import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.content.res.Resources;
-import android.location.Criteria;
-import android.location.Location;
-import android.location.LocationManager;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.gms.maps.model.MarkerOptions;
-
-import java.util.Timer;
 
 /**
  * A styled map using JSON styles from a raw resource.
@@ -54,8 +40,9 @@ public class Home extends AppCompatActivity
     private static final String TAG = Home.class.getSimpleName();
     private AppBarConfiguration mAppBarConfiguration;
     private GoogleMap mMap;
-    Handler handler = new Handler();
-    Runnable runnable;
+
+    boolean flag = false ;
+    // A flag to track the page that was switched to view profile [ e.g. access from ontrip or onroute ]
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +72,12 @@ public class Home extends AppCompatActivity
                 (SupportMapFragment) getSupportFragmentManager()
                         .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        //Apply custom spinner text by overwriting default spinner item text class
+        Spinner spinner = findViewById(R.id.favoriteSpinner);
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.favSpinner, R.layout.spinner_item);
+        spinner.setAdapter(adapter);
+
     }
 
     /**
@@ -129,17 +122,30 @@ public class Home extends AppCompatActivity
                         .findFragmentById(R.id.map2);
         mapFragment.getMapAsync(this);
 
-        Runnable mRunnable;
-        Handler mHandler=new Handler();
+        final Runnable mRunnable;
+        final Runnable nRunnable;
+        Runnable checkRunnable;
+        final Handler mHandler=new Handler();
 
         mRunnable=new Runnable() {
 
             @Override
             public void run() {
+                if(findViewById(R.id.driverprofile).getVisibility() == View.GONE) {
+                    findViewById(R.id.onroute).setVisibility(View.GONE);
+                    findViewById(R.id.ontrip).setVisibility(View.VISIBLE);
+                }
+            }
+        };
 
-                findViewById(R.id.onroute).setVisibility(View.GONE);
-                findViewById(R.id.ontrip).setVisibility(View.VISIBLE);
-
+        nRunnable = new Runnable() {
+            @Override
+            public void run() {
+                // If the user is on the view driver profile page then don't load the on arrived page
+                if(findViewById(R.id.driverprofile).getVisibility() == View.GONE) {
+                    findViewById(R.id.ontrip).setVisibility(View.GONE);
+                    findViewById(R.id.arrived).setVisibility(View.VISIBLE);
+                }
             }
         };
 
@@ -148,7 +154,118 @@ public class Home extends AppCompatActivity
                         .findFragmentById(R.id.map3);
         mapFragment.getMapAsync(this);
 
-        mHandler.postDelayed(mRunnable,5*1000);
+        mapFragment =
+                (SupportMapFragment) getSupportFragmentManager()
+                        .findFragmentById(R.id.arrived_map);
+        mapFragment.getMapAsync(this);
+
+
+        checkRunnable = new Runnable() {
+            @Override
+            public void run() {
+            if(findViewById(R.id.driverprofile).getVisibility() == View.GONE ) {
+                // If the user is on the view driver profile page then don't load the on trip and arrived page
+                mHandler.postDelayed(mRunnable, 5 * 1000);
+                mHandler.postDelayed(nRunnable, 10 * 1000);
+            }
+        }
+        };
+
+        mHandler.postDelayed(checkRunnable,5*1000);
+
+    }
+
+    public void viewProfile(View view) {
+
+        SupportMapFragment mapFragment =
+                (SupportMapFragment) getSupportFragmentManager()
+                        .findFragmentById(R.id.driverProfile_map);
+        mapFragment.getMapAsync(this);
+
+        if(findViewById(R.id.onroute).getVisibility() == View.VISIBLE){
+            findViewById(R.id.onroute).setVisibility(View.GONE);
+            findViewById(R.id.driverprofile).setVisibility(View.VISIBLE);
+            flag = false ;
+        }
+        else{
+            findViewById(R.id.ontrip).setVisibility(View.GONE);
+            findViewById(R.id.driverprofile).setVisibility(View.VISIBLE);
+            flag = true ;
+        }
+    }
+
+    public void backToMap(View view){
+
+        if(flag == false){
+            findViewById(R.id.onroute).setVisibility(View.VISIBLE);
+            findViewById(R.id.driverprofile).setVisibility(View.GONE);
+
+            Runnable mRunnable;
+            Runnable nRunnable;
+            Handler mHandler=new Handler();
+
+            mRunnable = new Runnable() {
+                @Override
+                public void run() {
+                    findViewById(R.id.onroute).setVisibility(View.GONE);
+                    findViewById(R.id.ontrip).setVisibility(View.VISIBLE);
+                }
+            };
+
+            nRunnable = new Runnable() {
+                @Override
+                public void run() {
+                    findViewById(R.id.ontrip).setVisibility(View.GONE);
+                    findViewById(R.id.arrived).setVisibility(View.VISIBLE);
+                }
+            };
+
+            mHandler.postDelayed(mRunnable, 7 * 1000);
+            mHandler.postDelayed(nRunnable, 13 * 1000);
+
+        }
+        else if(flag == true){
+            findViewById(R.id.ontrip).setVisibility(View.VISIBLE);
+            findViewById(R.id.driverprofile).setVisibility(View.GONE);
+
+            Runnable nRunnable;
+            Handler mHandler=new Handler();
+
+            nRunnable = new Runnable() {
+                @Override
+                public void run() {
+                    findViewById(R.id.ontrip).setVisibility(View.GONE);
+                    findViewById(R.id.arrived).setVisibility(View.VISIBLE);
+                }
+            };
+
+            mHandler.postDelayed(nRunnable, 7 * 1000);
+
+        }
+    }
+
+    public void leaveReview(View view){
+
+        findViewById(R.id.arrived).setVisibility(View.GONE);
+        findViewById(R.id.reviewPage).setVisibility(View.VISIBLE);
+
+        SupportMapFragment mapFragment =
+                (SupportMapFragment) getSupportFragmentManager()
+                        .findFragmentById(R.id.review_map);
+        mapFragment.getMapAsync(this);
+
+    }
+
+    public void submitReview(View view){
+
+        findViewById(R.id.reviewPage).setVisibility(View.GONE);
+        findViewById(R.id.reviewRecieved).setVisibility(View.VISIBLE);
+
+        SupportMapFragment mapFragment =
+                (SupportMapFragment) getSupportFragmentManager()
+                        .findFragmentById(R.id.reviewRecieved_map);
+        mapFragment.getMapAsync(this);
+
     }
 
 
@@ -164,6 +281,11 @@ public class Home extends AppCompatActivity
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public void backHome(View view){
+        Intent intent = new Intent(this, Home.class);
+        startActivity(intent);
     }
 
     @Override

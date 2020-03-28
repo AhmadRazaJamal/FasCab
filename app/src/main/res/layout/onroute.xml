@@ -17,7 +17,7 @@
         android:text="Success! Taxi Onroute"
         android:textColor="#FFFFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintBottom_toTopOf="@+id/reviews_bttn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +52,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/reviews_bttn"
         android:layout_width="287dp"
         android:layout_height="51dp"
         android:layout_marginTop="32dp"
@@ -62,6 +62,7 @@
         android:fontFamily="@font/nobile_bold"
         android:shadowRadius="1.5"
         android:text="View Driver Profile"
+        android:onClick="viewProfile"
         android:textColor="#FFFFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

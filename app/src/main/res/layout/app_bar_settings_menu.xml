@@ -24,5 +24,9 @@
         android:visibility="visible"/>
     <include android:id="@+id/onroute" layout="@layout/onroute" android:visibility="gone"/>
     <include android:id="@+id/ontrip" layout="@layout/ontrip" android:visibility="gone"/>
+    <include android:id="@+id/driverprofile" layout="@layout/driver_profile" android:visibility="gone"/>
+    <include android:id="@+id/arrived" layout="@layout/arrived_page" android:visibility="gone"/>
+    <include android:id="@+id/reviewPage" layout="@layout/review_page" android:visibility="gone"/>
+    <include android:id="@+id/reviewRecieved" layout="@layout/review_recieved" android:visibility="gone"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

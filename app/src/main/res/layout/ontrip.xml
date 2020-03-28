@@ -33,7 +33,7 @@
         android:text="Time to Destination: ~ 16 m"
         android:textColor="#FFFFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintBottom_toTopOf="@+id/reviews_bttn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.078"
         app:layout_constraintStart_toStartOf="parent" />
@@ -52,7 +52,7 @@
         tools:context=".Home" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/reviews_bttn"
         android:layout_width="287dp"
         android:layout_height="51dp"
         android:layout_marginTop="32dp"
@@ -64,6 +64,7 @@
         android:text="View Driver Profile"
         android:textColor="#FFFFFFFF"
         android:textSize="20sp"
+        android:onClick="viewProfile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
