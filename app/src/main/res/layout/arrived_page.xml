@@ -77,7 +77,7 @@
         android:fontFamily="@font/nobile_bold"
         android:gravity="center"
         android:shadowRadius="1.5"
-        android:text="Thank you for using FaCab "
+        android:text="Thank you for using FasCab "
         android:textColor="#FFFFFFFF"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
