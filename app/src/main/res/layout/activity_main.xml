@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/map"
+    android:scaleType="centerCrop"
+    android:alpha="0.95"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/LoginMessage"
+        android:layout_width="290dp"
+        android:layout_height="92dp"
+        android:text="@string/loginpage"
+        android:fontFamily="@font/nobile_bold"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/password_enrty"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.544" />
+
+    <EditText
+        android:id="@+id/username_entry"
+        android:layout_width="371dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:fontFamily="@font/nobile_bold"
+        android:hint="Username/Email"
+        android:inputType="textPersonName"
+        android:textColorHint="#FFFFFF"
+        app:backgroundTint="#FFFFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LoginMessage" />
+
+    <EditText
+        android:id="@+id/password_enrty"
+        android:layout_width="371dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="36dp"
+        android:ems="10"
+        android:fontFamily="@font/nobile_bold"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textColorHint="#FFFFFF"
+        app:backgroundTint="#FFFFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/rememberMe_checkbox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <CheckBox
+        android:id="@+id/rememberMe_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:buttonTint="#FAF8F8"
+        android:fontFamily="@font/nobile_bold"
+        android:text="Remember Me"
+        android:textColor="#FFFAF8F8"
+        app:layout_constraintBottom_toTopOf="@+id/login_bttn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/login_bttn"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="371dp"
+        android:layout_height="52dp"
+        android:onClick="goHome"
+        android:layout_marginBottom="52dp"
+        android:background="@drawable/button_custom"
+        android:backgroundTint="#0C0C0C"
+        android:fontFamily="@font/nobile_bold"
+        android:shadowRadius="1.5"
+        android:text="LogIn"
+        android:textColor="#FFFFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/signupMessage_txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/signupMessage_txt"
+        android:layout_width="350dp"
+        android:layout_height="27dp"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/nobile_bold"
+        android:text="@string/signup"
+        android:textColor="#FCFCFC"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="118dp"
+        android:layout_height="117dp"
+        android:alpha="0.95"
+        android:background="@drawable/button_custom"
+        android:src="@drawable/fascablogo"
+        app:layout_constraintBottom_toTopOf="@+id/LoginMessage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.457" />
+</androidx.constraintlayout.widget.ConstraintLayout>
