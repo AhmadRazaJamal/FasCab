@@ -5,12 +5,20 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -26,6 +34,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
+import com.google.android.gms.maps.model.Polyline;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -39,6 +48,8 @@ public class Home extends AppCompatActivity
 
     boolean flag = false ;
     /** A flag to track the page that was switched to view profile [ e.g. access from ontrip or onroute ] */
+
+    Polyline currentpolyLine ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +87,61 @@ public class Home extends AppCompatActivity
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.favSpinner, R.layout.spinner_item);
         spinner.setAdapter(adapter);
 
+        addListener();
+
+    }
+
+
+    /**
+     * Method for listeners of various types for different types of input from user 
+     *
+     */
+    public void addListener() {
+
+        final CheckBox blackList = findViewById(R.id.blackList_check) ;
+
+        blackList.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    // perform logic
+                    TextView blackList = findViewById(R.id.blackListtatus_txt) ;
+                    blackList.setText("Yes");
+                }
+
+            }
+        });
+
+        final Spinner favoriteSpinner = findViewById(R.id.favoriteSpinner) ;
+
+        favoriteSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                TextView blackList = findViewById(R.id.favValue_txt) ;
+                blackList.setText(favoriteSpinner.getSelectedItem().toString());
+            }
+
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                return;
+            }
+        });
+
+        final EditText rating = findViewById(R.id.ratingEdittxt);
+
+        rating.addTextChangedListener(new TextWatcher() {
+
+            public void afterTextChanged(Editable s) {
+                TextView blackList = findViewById(R.id.ratingValue_txt) ;
+                blackList.setText(rating.getText());
+            }
+
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+            }
+        });
+
     }
 
     /**
@@ -106,7 +172,7 @@ public class Home extends AppCompatActivity
 
         LatLng latLng = new LatLng(49.8880, -119.4960);
         googleMap.addMarker(new MarkerOptions().position(latLng)
-                .title("Marker in Sydney"));
+                .title("Marker in Kelowna"));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
 
     }

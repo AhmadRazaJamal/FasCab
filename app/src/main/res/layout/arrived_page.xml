@@ -125,7 +125,7 @@
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.129"
-        app:layout_constraintStart_toEndOf="@+id/editText4"
+        app:layout_constraintStart_toEndOf="@+id/ratingEdittxt"
         app:layout_constraintTop_toBottomOf="@+id/thankyouMsg_txt" />
 
     <Spinner
@@ -139,7 +139,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.96"
         app:layout_constraintStart_toEndOf="@+id/fav_txt"
-        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+        app:layout_constraintTop_toBottomOf="@+id/ratingEdittxt" />
 
     <View
         android:id="@+id/divider2"
@@ -198,7 +198,7 @@
         app:layout_constraintTop_toBottomOf="@+id/totalAm_txt" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/ratingEdittxt"
         android:layout_width="100dp"
         android:layout_height="39dp"
         android:layout_marginStart="48dp"
@@ -230,7 +230,7 @@
         app:layout_constraintTop_toBottomOf="@+id/fav_txt" />
 
     <CheckBox
-        android:id="@+id/checkBox3"
+        android:id="@+id/blackList_check"
         android:layout_width="67dp"
         android:layout_height="45dp"
         android:layout_marginTop="24dp"

@@ -35,6 +35,7 @@ public class PaymentFragment extends Fragment {
         b1.setVisibility(View.GONE);
         Button b2 = getActivity().findViewById(R.id.later);
         b2.setVisibility(View.GONE);
-
+        getActivity().findViewById(R.id.to_txt).setVisibility(View.GONE);
+        getActivity().findViewById(R.id.destination_entry).setVisibility(View.GONE);
     }
 }
