@@ -41,7 +41,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <fragment
-        android:id="@+id/map2"
+        android:id="@+id/onroute_map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="393dp"
         android:layout_height="398dp"

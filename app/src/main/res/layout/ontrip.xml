@@ -39,7 +39,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <fragment
-        android:id="@+id/map3"
+        android:id="@+id/ontrip_map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="393dp"
         android:layout_height="398dp"

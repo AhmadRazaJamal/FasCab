@@ -17,16 +17,14 @@ import com.example.fascab.R;
 
 public class TripsFragment extends Fragment {
 
-    private TripsViewModel tripsViewModel;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        tripsViewModel =
-                ViewModelProviders.of(this).get(TripsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_trips, container, false);
 
         return root;
     }
+
+    // When fragment for trips is displaying on the home page, the buttons are hidden away
 
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // Setup any handles to view objects here

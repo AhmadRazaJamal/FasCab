@@ -17,8 +17,6 @@ import com.example.fascab.R;
 
 public class ProfileFragment extends Fragment {
 
-    private ProfileViewModel profileViewModel;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 

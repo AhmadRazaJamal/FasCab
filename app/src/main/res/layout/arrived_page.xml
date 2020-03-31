@@ -188,11 +188,11 @@
         android:background="@drawable/button_custom"
         android:backgroundTint="#0C0C0C"
         android:fontFamily="@font/nobile_bold"
+        android:onClick="leaveReview"
         android:shadowRadius="1.5"
-        android:text="Leave a Review"
+        android:text="Write a Review"
         android:textColor="#FFFFFFFF"
         android:textSize="17sp"
-        android:onClick="leaveReview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/totalAm_txt" />

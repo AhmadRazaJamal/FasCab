@@ -21,8 +21,6 @@ import com.example.fascab.R;
 
 public class PreferencesFragment extends Fragment {
 
-    private PreferencesViewModel preferencesViewModel;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -32,6 +30,8 @@ public class PreferencesFragment extends Fragment {
 
         return root ;
     }
+
+    // When fragment for preferences is displaying on the home page, the buttons are hidden away
 
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // Setup any handles to view objects here

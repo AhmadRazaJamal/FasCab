@@ -20,8 +20,7 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include  android:id="@+id/homesweethome" layout="@layout/content_settings_menu"
-        android:visibility="visible"/>
+    <include  android:id="@+id/homesweethome" layout="@layout/content_settings_menu" android:visibility="visible"/>
     <include android:id="@+id/onroute" layout="@layout/onroute" android:visibility="gone"/>
     <include android:id="@+id/ontrip" layout="@layout/ontrip" android:visibility="gone"/>
     <include android:id="@+id/driverprofile" layout="@layout/driver_profile" android:visibility="gone"/>

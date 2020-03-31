@@ -19,17 +19,15 @@ import com.example.fascab.R;
 
 public class PaymentFragment extends Fragment {
 
-    private PaymentViewModel paymentViewModel;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        paymentViewModel =
-                ViewModelProviders.of(this).get(PaymentViewModel.class);
 
         View root = inflater.inflate(R.layout.fragment_payment, container, false);
 
         return root;
     }
+
+    // When fragment for payments is displaying on the home page, the buttons are hidden away
 
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // Setup any handles to view objects here
