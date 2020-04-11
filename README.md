@@ -16,7 +16,7 @@ An android application that allows the users to book a taxi with the click of a 
 ## Features 
 
 * User Login
-* User SignUp *To be implemented*
+* User SignUp [ *To be implemented* ] 
 * Functional drawer menu 
 * Google maps API implementation 
 * Home page 
