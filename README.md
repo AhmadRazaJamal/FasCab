@@ -27,7 +27,6 @@ An android application that allows the users to book a taxi with the click of a 
 
 *User Login*
 <br>
-<hr>
 <br>
 <img src="https://github.com/AhmadRazaJamal/FasCab/blob/master/demoVids/logIn.gif">
 
