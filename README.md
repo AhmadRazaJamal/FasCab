@@ -47,8 +47,8 @@ An Android application that allows the users to book a taxi with the click of a 
 
 ## How to Run 
 
-Inorder to run this application download the latest version of [Android Studio](https://developer.android.com/studio) and then open the files in your studio to run. The APK files for the application has been provided. The hardcoded default logIn info is 
-username: *user* & password: *password*. The application has been configured to work on Android devices with APK >= 29, so choose that option for AVD. 
+In order to run this application download the latest version of [Android Studio](https://developer.android.com/studio) and then open the files in your studio to run. The APK files for the application has been provided. The hardcoded default logIn info is 
+username: *user* & password: *password*. The application has been configured to work on Android devices with **APK >= 29**, so choose that option for AVD. 
 
 ## About 
 
