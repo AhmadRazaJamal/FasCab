@@ -23,4 +23,19 @@ An android application that allows the users to book a taxi with the click of a 
 * Functional leave review page 
 * Other pages to showcase UI 
 
+## Features Demo
+
+*User Login*
+<img src="https://github.com/AhmadRazaJamal/FasCab/blob/master/demoVids/logIn.gif">
+
+*Drawer Menu Items*
+<img src="https://github.com/AhmadRazaJamal/FasCab/blob/master/demoVids/drawerdemo.gif">
+
+*Booking a taxi* 
+<img src="https://github.com/AhmadRazaJamal/FasCab/blob/master/demoVids/bookingdemo.gif">
+
+*Leaving a Review* 
+<img src="https://github.com/AhmadRazaJamal/FasCab/blob/master/demoVids/reviewdemo.gif">
+
+
 
