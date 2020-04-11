@@ -11,7 +11,7 @@ _____
 
 ## About
 
-An android application that allows the users to book a taxi with the click of a button. The purpose of the application is to provide a taxi booking app with simplified UI that is easy to navigate and intuitive to understand. The focus was on the UI and on easing the HCI by trying to understand how users navigate through booking applications hence simplifying the process. 
+An Android application that allows the users to book a taxi with the click of a button. The purpose of the application is to provide a taxi booking app with simplified UI that is easy to navigate and intuitive to understand. The focus was on the UI and on easing the HCI by trying to understand how users navigate through booking applications hence simplifying the process. 
 
 ## Features 
 
